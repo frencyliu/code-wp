@@ -1,0 +1,13 @@
+{
+    "name": "root/composer",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Root\\Composer\\": "src/"
+        }
+    },
+    "require": {
+        "knplabs/knp-snappy": "^1.4",
+        "h4cc/wkhtmltoimage-amd64": "0.12.x"
+    }
+}

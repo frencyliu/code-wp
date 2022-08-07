@@ -1,0 +1,72 @@
+<div class="container" id="counter">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="lc-block">
+				<div class="card bg-secondary-100 shadow-none">
+					<div class="card-body text-center">
+						<div class="lc-block">
+							<div editable="rich">
+								<p class="card-title fw-bold text-primary" style="font-size:3.75rem;">&gt; <span class="counter-value" data-count="400">0</span></p>
+								<!-- <h4 class="card-subtitle" editable="inline">Card subtitle</h4> -->
+								<p class="card-text">我們已執行FTO分析因應之專案數量（件）</p>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- /lc-block -->
+		</div><!-- /col -->
+		<div class="col-md-6">
+			<div class="lc-block">
+				<div class="card bg-secondary-100 shadow-none">
+					<div class="card-body text-center">
+						<div class="lc-block">
+							<div editable="rich">
+								<p class="card-title fw-bold text-primary" style="font-size:3.75rem;">&gt; <span class="counter-value" data-count="140">0</span></p>
+								<!-- <h4 class="card-subtitle" editable="inline">Card subtitle</h4> -->
+								<p class="card-text">我們於不同產業當中已服務客戶數量（個）</p>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- /lc-block -->
+		</div><!-- /col -->
+	</div>
+</div>
+
+
+<script>
+	var a = 0;
+jQuery(window).scroll(function() {
+
+  var oTop = jQuery('#counter').offset().top - window.innerHeight;
+  if (a == 0 && jQuery(window).scrollTop() > oTop) {
+    jQuery('.counter-value').each(function() {
+      var jQuerythis = jQuery(this),
+        countTo = jQuerythis.attr('data-count');
+      jQuery({
+        countNum: jQuerythis.text()
+      }).animate({
+          countNum: countTo
+        },
+
+        {
+
+          duration: 2000,
+          easing: 'swing',
+          step: function() {
+            jQuerythis.text(Math.floor(this.countNum));
+          },
+          complete: function() {
+            jQuerythis.text(this.countNum);
+            //alert('finished');
+          }
+
+        });
+    });
+    a = 1;
+  }
+
+});
+</script>
